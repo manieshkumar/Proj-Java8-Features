@@ -1,0 +1,163 @@
+1)the main object of lamda expression is to bring the beneficts of the functional programming in java.
+
+2)Lamda expression is just an annonymous(nameless) function.
+which means function does not have the function name,return type and modifiers.
+Lamda expression is also known as anonymous functions or closures.
+
+3)A lamda expression can be have zero or more no of parameter.
+
+4)Once we write lamda expression we can call that expression just like a method for the functional interface is required
+
+Advantages:-
+============
+5)To enable functional programming in java
+6)to write more readable maintainable and consize code
+7)To use api very easily and effectively
+8)to enable parallel processing
+
+What is lamda expression?
+
+Lamda expression is an annonymous function.
+It is not having name ,not having modifiers and not having any return type.
+
+
+If lambda expression contains only one statement then curly braces are optional.
+Type inference -sometime complier can guess the type of variable so we can also remove type.
+If in a parameter it contain a single argument then we can remove the brackets also.
+
+Ex:-
+public void m1(){
+sopln("hello");
+}
+
+In case of lamda it will be like
+()->{
+	sopln("hello");
+}
+
+Functional Interface:-(SAM-single abstract method)
+======================
+TO invoke lambda expression we require a functional interface.
+Runnable Interface->contains only run()
+Callable Interface->call() method
+Action Listener->actionPerformed() method
+Comparable->contains only method compareTo() method
+
+If the interface contains only one abstract method then that interface is called functional inference
+
+we can also have default method and static method any no,restriction is only for abstract method.
+
+TO specify this interface is a funtional interface java people introduce one annotation called
+@FunctionalInteface
+
+If by mistake i enter two abstract method it will give us left and right(error).
+At least one abstrace method is compulsory.
+
+
+functional interface wrt to inheritance:-
+===========================================
+If an interface extends functional interface and child interface does not contain any abstract method then child inteface is always FunctionalInteface.
+
+In the child interface we can define exactly same parent interface abstract method.
+
+In the child interface we can't define any new abstract methods otherwise we will get compile time error.
+
+The same is valid for above case if in child we don't define with @FunctionalInteface annotation
+even if we have new abstract method it will not throw error because it is not declared as @FunctionalInteface.
+
+
+5)there are some pre-defined Functional interfaces 
+Predicate
+Function
+Consumer
+
+Method reference and Costructor  reference by double colan(::) operator
+TO simplify programming
+To utilize functional programming benefits in java
+TO enable parallel programming
+
+Annonymous Inner class!=lambda expression
+
+Inside lambda expression we cannot declare a instance variable.
+
+What is the difference b/w java.util.streams and java.io.streams?
+
+java.util.streams:-
+===================
+1)java.util.streams meant for processing objects from the collection.
+2)It represents a stream of object from the collection.
+
+java.io.streams:-
+===================
+1)java.io.streams meant for processing binary and character data with respect to file.
+2)i.e it represents stream of binary data or character data from the file.
+
+
+What is the difference b/w collection and stream ?
+1)If we want to represent group of individual object as a single entity then we should go for 
+Collection.
+
+2)If we want to process group of objects from the collection  then we should go for the streams.
+
+3)we can create a stream object to the collection by using the stream() method of collection 
+interface.
+
+4)stream()method is the default method added to the Collection in the version 1.8.
+
+
+default Stream stream()
+
+Ex:-
+Stream s=c.stream();
+
+Stream is an interface in java.util.stream.Once we got the stream ,by using that we can process
+objects of that collection.
+
+we can process the object in the following 2 phases
+1)Configuration
+2)Processing
+
+1)Configuration
+---------------
+we can either configure by using the filter() mechanism or by using the map mechanism.
+
+Filtering:
+----------
+we can configure a filter to filter elements from the collection based on some boolean
+condition by using filter() method of Stream interface.
+
+public Stream filter(Predicate<T> t)
+
+where (Predicate<T> t) can be boolean value function/lamda expression
+
+Ex:
+Stream s=c.stream();
+Stream s1=s.filter(i->i%2==0);
+
+Mapping:
+-------
+If we want to create a separate new object,for every object present inside the collection 
+based on our requirement then we should go for map() method of stream interface
+
+public Stream map(Function f);
+
+where Function f -> it can be lambda expression also.
+
+Ex:
+
+Stream s=c.stream();
+Stream s1=s.map(i->i+10);
+
+once we performed we can process objects by using several methods.
+
+2)Processing
+------------
+→collect()
+→count()
+→sorted()
+→min() and max() methods
+→forEach() method
+→toArray() method
+→Stream.of() method
+
+
