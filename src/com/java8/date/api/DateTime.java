@@ -7,6 +7,7 @@ public class DateTime {
 
 	public static void main(String[] args) {
 		
+		//create localdate instance
 		LocalDate date=LocalDate.now();
 		System.out.println(date);
 		
